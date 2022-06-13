@@ -16,10 +16,14 @@ class AuthController extends CI_Controller {
 
 
     //hapusdatakriteria
-    function hapusKriteria($where)
+    function hapusKriteria($id)
     {
-      $this->db->where($where);
-      $this->db->delete('kode_kriteria', $where);
+		$where = [
+			"id" => $id
+		];
+	  $this->db->where($where);
+	  $this->db->delete('kode_kriteria');
+	  return redirect("welcome/table2");
     }
 
 

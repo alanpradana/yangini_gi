@@ -104,7 +104,7 @@ class Welcome extends CI_Controller {
 	{
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['table2'] = $this->db->get('kode_kriteria')->result_array();
-		$data['title']="table2";
+		$data['title']="Data Kriteria";
 		$this->load->view('template/sidebar',$data);
 		$this->load->view('template/header');
 		$this->load->view('dashboard/table2');
