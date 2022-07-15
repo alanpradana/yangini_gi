@@ -149,4 +149,9 @@ class Welcome extends CI_Controller
 		$this->load->view('dashboard/user', $data);
 		$this->load->view('template/footer');
 	}
+
+	public function perhitungan()
+	{
+		//
+	}
 }

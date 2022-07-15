@@ -57,17 +57,22 @@
 			<li class="nav-item active">
 				<a class="nav-link" href="<?= base_url('welcome/table1') ?>">
 					<i class="fas fa-fw fa-table"></i>
-					<span>Data Peternak</span></a>
+					<span>Keriteria</span></a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="<?= base_url('welcome/table2') ?>">
 					<i class="fas fa-fw fa-table"></i>
-					<span>Data Kriteria</span></a>
+					<span>Sub Kriteria</span></a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="<?= base_url('welcome/table3') ?>">
 					<i class="fas fa-fw fa-table"></i>
-					<span>Data Sub Kriteria</span></a>
+					<span>Arternatif</span></a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" href="<?= base_url('welcome/perhitungan') ?>">
+					<i class="fas fa-fw fa-table"></i>
+					<span>Perhitungan Saw</span></a>
 			</li>
 
 			<!-- Divider -->

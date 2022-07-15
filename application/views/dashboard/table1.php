@@ -36,12 +36,10 @@
 						<thead class="thead-light">
 							<tr>
 								<th scope="col">No</th>
-								<th scope="col" class="text-center">Nama</th>
-								<th scope="col">Keadaan Ekonomi</th>
-								<th scope="col">Pendidikan Terakhir</th>
-								<th scope="col">Jumlah Tanggungan</th>
-								<th scope="col">Jumlah Pengeluaran</th>
-								<th scope="col">Lokasi Ternak</th>
+								<th scope="col" class="text-center">Kode keriteria</th>
+								<th scope="col">Nama Kriteria</th>
+								<th scope="col">Atribut Kriteria</th>
+								<th scope="col">Bobot Kriteria</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -54,8 +52,6 @@
 									<td><?= $row['keadaan_ekonomi']; ?></td>
 									<td><?= $row['pendidikan_terakhir']; ?></td>
 									<td><?= $row['jumlah_tanggungan']; ?></td>
-									<td><?= $row['jumlah_pengeluaran']; ?></td>
-									<td><?= $row['lokasi_ternak']; ?></td>
 								<?php endforeach; ?>
 						</tbody>
 					</table>
@@ -63,10 +59,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
 
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
