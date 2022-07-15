@@ -17,6 +17,7 @@
 								<th scope="col">No</th>
 								<th scope="col" class="text-center">Kode Alternatif</th>
 								<th scope="col">Nama Alternatif</th>
+								<th scope="col">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -27,6 +28,9 @@
 									<th scope="row"> <?= $no++; ?> </th>
 									<td><?= $item["kode_alternatif"]; ?></td>
 									<td><?= $item["nama_alternatif"]; ?></td>
+									<td>
+										<a href="<?= base_url("alternatif/destroy/") . $item['id'] ?>" onclick="return confirm('Yakin Inggin Menghapus');" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+									</td>
 								<?php endforeach; ?>
 						</tbody>
 					</table>
@@ -46,7 +50,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form method="post" action="<?= base_url('AuthController/tambahdataalternatif') ?>">
+					<form method="post" action="<?= base_url('Alternatif/create') ?>">
 						<div class="form-group">
 							<label for="exampleInputEmail1" class="font-weight-bold">Kode Alternatif</label>
 							<input name="kode_alternatif" type="text" class="form-control" id="formGroupExampleInput" placeholder="">

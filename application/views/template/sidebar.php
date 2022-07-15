@@ -65,9 +65,9 @@
 					<span>Sub Kriteria</span></a>
 			</li>
 			<li class="nav-item active">
-				<a class="nav-link" href="<?= base_url('welcome/table3') ?>">
+				<a class="nav-link" href="<?= base_url('Alternatif') ?>">
 					<i class="fas fa-fw fa-table"></i>
-					<span>Arternatif</span></a>
+					<span>Alternatif</span></a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="<?= base_url('welcome/perhitungan') ?>">

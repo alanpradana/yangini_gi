@@ -131,28 +131,15 @@ class Welcome extends CI_Controller
 		redirect('Welcome/table2');
 	}
 
-	public function table3()
+	function hapusAlternatif($id)
 	{
-		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['items'] = $this->db->get('alternatif')->result_array();
-		$data['title'] = "Data Alternatif";
-		$this->load->view('template/sidebar', $data);
-		$this->load->view('template/header');
-		$this->load->view('dashboard/table3');
-		$this->load->view('template/footer');
-	}
-
-	public function tambahdataalternatif()
-	{
-		$kode_alternatif = $this->input->post('kode_alternatif');
-		$nama_alternatif = $this->input->post('nama_alternatif');
-		$data = [
-			'kode_alternatif' => $kode_alternatif,
-			'nama_alternatif' => $nama_alternatif,
+		$where = [
+			'id_table3' => $id
 		];
-		$this->db->insert('alternatif', $data);
-		redirect('AuthController/dataalternatif');
+		$this->AuthController->hapusAlternatif($where);
+		redirect('Welcome/table3');
 	}
+	
 
 	public function user()
 	{

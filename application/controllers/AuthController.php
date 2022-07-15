@@ -26,6 +26,17 @@ class AuthController extends CI_Controller {
 	  return redirect("welcome/table2");
     }
 
+    //hapusdatakriteria
+    function hapusAlternatif($id)
+    {
+		$where = [
+			"id" => $id
+		];
+	  $this->db->where($where);
+	  $this->db->delete('alternatif');
+	  return redirect("welcome/table3");
+    }
+
 
     //Data Kriteria
   function kodekriteria()
