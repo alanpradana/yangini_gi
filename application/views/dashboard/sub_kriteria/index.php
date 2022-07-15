@@ -4,24 +4,29 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Tambah Data Kriteria</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Tambah Data Sub Kriteria</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-					<form method="post" action="<?= base_url('AuthController/tambahkodekriteria') ?>">
+					<form method="post" action="<?= base_url('Sub_kriteria/create') ?>">
 						<div class="form-group">
-							<label for="formGroupExampleInput">Kode Kriteria</label>
-							<input name="kodeKriteria" type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+							<label for="kretera_id">Nama Kriteria</label>
+							<select class="custom-select" name="kretera_id" id="kretera_id">
+								<option selected>Choose...</option>
+								<?php foreach ($items_kriteria as $item) : ?>
+									<option value="<?= $item["id"] ?>"><?= $item["nama_kriteria"] ?></option>
+								<?php endforeach; ?>
+							</select>
 						</div>
 						<div class="form-group">
-							<label for="formGroupExampleInput2">Kriteria</label>
-							<input name="kriteria" type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+							<label for="sub_kriteria">Sub kriteria</label>
+							<input name="sub_kriteria" type="text" class="form-control" id="sub_kriteria" placeholder="Sub Kriteria">
 						</div>
 						<div class="form-group">
-							<label for="formGroupExampleInput2">Bobot Nilai</label>
-							<input name="bobotNilai" type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+							<label for="bobot_nilai">Bobot Nilai</label>
+							<input name="bobot_nilai" type="text" class="form-control" id="bobot_nilai" placeholder="Bobot nilai">
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -33,13 +38,12 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="content-wrapper">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col ml-2 mt-3 mb-2">
-					<h3>Data Kriteria</h3>
-					<a href="#" data-toggle="modal" data-target="#exampleModal" class="btn mt-2 mb-3 btn-primary"><i class="fas fa-plus mr-2"></i>Tambah Data Kriteria</a>
+					<h3>Data Sub Kriteria</h3>
+					<a href="#" data-toggle="modal" data-target="#exampleModal" class="btn mt-2 mb-3 btn-primary"><i class="fas fa-plus mr-2"></i>Tambah Data</a>
 					<?= $this->session->flashdata('pesanDosen'); ?>
 				</div>
 			</div>
@@ -50,7 +54,7 @@
 							<tr>
 								<th scope="col">No</th>
 								<th scope="col">Nama Kriteria</th>
-								<th scope="col">Sub Kriteria - Bobot</th>
+								<th scope="col">Sub Kriteria</th>
 								<th scope="col">Bobot</th>
 								<th scope="col">Action</th>
 							</tr>
@@ -61,8 +65,8 @@
 							foreach ($items as $item) : ?>
 								<tr>
 									<th scope="item"> <?= $no++; ?> </th>
-									<td><?= $item['kode_kriteria']; ?></td>
-									<td><?= $item['kriteria']; ?></td>
+									<td><?= $item['kretera_id']; ?></td>
+									<td><?= $item['sub_kriteria']; ?></td>
 									<td><?= $item['bobot_nilai']; ?></td>
 									<td>
 										<a href="<?= base_url('AuthController/hapusKriteria/') . $item['id']; ?>" onclick="return confirm('Yakin Inggin Menghapus');" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
@@ -82,24 +86,33 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Tambah Data Kriteria</h5>
+						<h5 class="modal-title" id="exampleModalLabel">Edit Data Kriteria</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
-						<form method="post" action="<?= base_url('AuthController/tambahkodekriteria') ?>">
+						<form method="post" action="<?= base_url('Sub_kriteria/edit/') . $item["id"]  ?>">
 							<div class="form-group">
-								<label for="formGroupExampleInput">Kode Kriteria</label>
-								<input name="kodeKriteria" value="<?= $item["kode_kriteria"]; ?>" type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+								<label for="kretera_id">Nama Kriteria</label>
+								<select class="custom-select" name="kretera_id" id="kretera_id">
+									<option selected>Choose...</option>
+									<?php foreach ($items_kriteria as $item_keriteria) : ?>
+										<option value="<?= $item_keriteria["id"] ?>" <?php if ($item_keriteria["id"] == $item["kretera_id"]) {
+																																		echo 'selected="selected"';
+																																	} ?>>
+											<?= $item_keriteria["nama_kriteria"] ?>
+										</option>
+									<?php endforeach; ?>
+								</select>
 							</div>
 							<div class="form-group">
-								<label for="formGroupExampleInput2">Kriteria</label>
-								<input name="kriteria" type="text" value="<?= $item["kriteria"]; ?>" class="form-control" id="formGroupExampleInput2" placeholder="">
+								<label for="sub_kriteria">Sub kriteria</label>
+								<input name="sub_kriteria" type="text" value="<?= $item["sub_kriteria"] ?>" class="form-control" id="sub_kriteria" placeholder="Sub Kriteria">
 							</div>
 							<div class="form-group">
-								<label for="formGroupExampleInput2">Bobot Nilai</label>
-								<input name="bobotNilai" type="text" value="<?= $item["bobot_nilai"] ?>" class="form-control" id="formGroupExampleInput2" placeholder="">
+								<label for="bobot_nilai">Bobot Nilai</label>
+								<input name="bobot_nilai" type="text" class="form-control" value="<?= $item["bobot_nilai"] ?>" id="bobot_nilai" placeholder="Bobot nilai">
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
