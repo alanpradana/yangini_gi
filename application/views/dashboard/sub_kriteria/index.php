@@ -65,7 +65,7 @@
 							foreach ($items as $item) : ?>
 								<tr>
 									<th scope="item"> <?= $no++; ?> </th>
-									<td><?= $item['kretera_id']; ?></td>
+									<td><?= $item['nama_kriteria']; ?></td>
 									<td><?= $item['sub_kriteria']; ?></td>
 									<td><?= $item['bobot_nilai']; ?></td>
 									<td>

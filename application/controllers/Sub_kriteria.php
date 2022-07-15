@@ -5,9 +5,12 @@ class Sub_kriteria extends CI_Controller
 {
 	public function index()
 	{
+		// Load model
+		$this->load->model(['Master']);
+
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['items'] = $this->db->get('sub_kriteria')->result_array();
 		$data['items_kriteria'] = $this->db->get('kriteria')->result_array();
+		$data['items'] =  $this->Master->getSubKeriteria()->result_array();
 		$data['title'] = "Sub kriteria";
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('template/header');
