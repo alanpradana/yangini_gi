@@ -1,6 +1,4 @@
 <div class="container-fluid">
-
-
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -60,15 +58,15 @@
 						<tbody>
 							<?php
 							$no = 1;
-							foreach ($table2 as $row) : ?>
+							foreach ($items as $item) : ?>
 								<tr>
-									<th scope="row"> <?= $no++; ?> </th>
-									<td><?= $row['kode_kriteria']; ?></td>
-									<td><?= $row['kriteria']; ?></td>
-									<td><?= $row['bobot_nilai']; ?></td>
+									<th scope="item"> <?= $no++; ?> </th>
+									<td><?= $item['kode_kriteria']; ?></td>
+									<td><?= $item['kriteria']; ?></td>
+									<td><?= $item['bobot_nilai']; ?></td>
 									<td>
-										<a href="<?= base_url('AuthController/hapusKriteria/') . $row['id']; ?>" onclick="return confirm('Yakin Inggin Menghapus');" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-										<a href="#" data-toggle="modal" data-target="#EditModal<?= $row['id']; ?>" class="btn btn-success"><i class="fas fa-edit"></i></a>
+										<a href="<?= base_url('AuthController/hapusKriteria/') . $item['id']; ?>" onclick="return confirm('Yakin Inggin Menghapus');" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+										<a href="#" data-toggle="modal" data-target="#EditModal<?= $item['id']; ?>" class="btn btn-success"><i class="fas fa-edit"></i></a>
 									</td>
 								<?php endforeach; ?>
 						</tbody>
@@ -79,8 +77,8 @@
 	</div>
 
 	<!-- Modal Edit-->
-	<?php foreach ($table2 as $row) : ?>
-		<div class="modal fade" id="EditModal<?= $row['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<?php foreach ($items as $item) : ?>
+		<div class="modal fade" id="EditModal<?= $item['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -93,15 +91,15 @@
 						<form method="post" action="<?= base_url('AuthController/tambahkodekriteria') ?>">
 							<div class="form-group">
 								<label for="formGroupExampleInput">Kode Kriteria</label>
-								<input name="kodeKriteria" value="<?= $row["kode_kriteria"]; ?>" type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+								<input name="kodeKriteria" value="<?= $item["kode_kriteria"]; ?>" type="text" class="form-control" id="formGroupExampleInput" placeholder="">
 							</div>
 							<div class="form-group">
 								<label for="formGroupExampleInput2">Kriteria</label>
-								<input name="kriteria" type="text" value="<?= $row["kriteria"]; ?>" class="form-control" id="formGroupExampleInput2" placeholder="">
+								<input name="kriteria" type="text" value="<?= $item["kriteria"]; ?>" class="form-control" id="formGroupExampleInput2" placeholder="">
 							</div>
 							<div class="form-group">
 								<label for="formGroupExampleInput2">Bobot Nilai</label>
-								<input name="bobotNilai" type="text" value="<?= $row["bobot_nilai"] ?>" class="form-control" id="formGroupExampleInput2" placeholder="">
+								<input name="bobotNilai" type="text" value="<?= $item["bobot_nilai"] ?>" class="form-control" id="formGroupExampleInput2" placeholder="">
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

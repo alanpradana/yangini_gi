@@ -55,12 +55,12 @@
 			</div>
 
 			<li class="nav-item active">
-				<a class="nav-link" href="<?= base_url('welcome/table1') ?>">
+				<a class="nav-link" href="<?= base_url('Kriteria') ?>">
 					<i class="fas fa-fw fa-table"></i>
 					<span>Keriteria</span></a>
 			</li>
 			<li class="nav-item active">
-				<a class="nav-link" href="<?= base_url('welcome/table2') ?>">
+				<a class="nav-link" href="<?= base_url('Sub_kriteria') ?>">
 					<i class="fas fa-fw fa-table"></i>
 					<span>Sub Kriteria</span></a>
 			</li>
