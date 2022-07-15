@@ -77,5 +77,21 @@ class AuthController extends CI_Controller {
     redirect('welcome/table1');
   }
 
+  //data alternatif
+  function dataalternatif()
+  {
+    return $this->db->get('alternatif');
+  }
+  function tambahdataalternatif()
+  {
+    $kode_alternatif=$this->input->post('kode_alternatif');
+    $nama_alternatif=$this->input->post('nama_alternatif');
+    $data=[
+      'kode_alternatif'=>$kode_alternatif,
+      'nama_alternatif'=>$nama_alternatif,
+    ];
+    $this->db->insert('alternatif',$data);
+    redirect('welcome/table3');
+  }
 
 }

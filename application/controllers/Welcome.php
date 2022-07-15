@@ -133,11 +133,25 @@ class Welcome extends CI_Controller
 
 	public function table3()
 	{
-		$data['title'] = "Data Sub Kriteria";
+		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['items'] = $this->db->get('alternatif')->result_array();
+		$data['title'] = "Data Alternatif";
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('template/header');
 		$this->load->view('dashboard/table3');
 		$this->load->view('template/footer');
+	}
+
+	public function tambahdataalternatif()
+	{
+		$kode_alternatif = $this->input->post('kode_alternatif');
+		$nama_alternatif = $this->input->post('nama_alternatif');
+		$data = [
+			'kode_alternatif' => $kode_alternatif,
+			'nama_alternatif' => $nama_alternatif,
+		];
+		$this->db->insert('alternatif', $data);
+		redirect('AuthController/dataalternatif');
 	}
 
 	public function user()
