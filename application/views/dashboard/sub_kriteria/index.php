@@ -12,8 +12,8 @@
 				<div class="modal-body">
 					<form method="post" action="<?= base_url('Sub_kriteria/create') ?>">
 						<div class="form-group">
-							<label for="kretera_id">Nama Kriteria</label>
-							<select class="custom-select" name="kretera_id" id="kretera_id">
+							<label for="kriteria_id">Nama Kriteria</label>
+							<select class="custom-select" name="kriteria_id" id="kretera_id">
 								<option selected>Choose...</option>
 								<?php foreach ($items_kriteria as $item) : ?>
 									<option value="<?= $item["id"] ?>"><?= $item["nama_kriteria"] ?></option>
@@ -95,7 +95,7 @@
 						<form method="post" action="<?= base_url('Sub_kriteria/edit/') . $item["id"]  ?>">
 							<div class="form-group">
 								<label for="kretera_id">Nama Kriteria</label>
-								<select class="custom-select" name="kretera_id" id="kretera_id">
+								<select class="custom-select" name="kriteria_id" id="kretera_id">
 									<option selected>Choose...</option>
 									<?php foreach ($items_kriteria as $item_keriteria) : ?>
 										<option value="<?= $item_keriteria["id"] ?>" <?php if ($item_keriteria["id"] == $item["kretera_id"]) {

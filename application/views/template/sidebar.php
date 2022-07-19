@@ -57,7 +57,7 @@
 			<li class="nav-item active">
 				<a class="nav-link" href="<?= base_url('Kriteria') ?>">
 					<i class="fas fa-fw fa-table"></i>
-					<span>Keriteria</span></a>
+					<span>Kriteria</span></a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="<?= base_url('Sub_kriteria') ?>">

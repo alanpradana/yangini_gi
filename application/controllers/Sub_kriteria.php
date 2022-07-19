@@ -21,7 +21,7 @@ class Sub_kriteria extends CI_Controller
 	public function create()
 	{
 		$data = [
-			'kretera_id' => $this->input->post('kretera_id'),
+			'kriteria_id' => $this->input->post('kriteria_id'),
 			'sub_kriteria' => $this->input->post('sub_kriteria'),
 			'bobot_nilai' => $this->input->post('bobot_nilai'),
 		];
@@ -31,7 +31,7 @@ class Sub_kriteria extends CI_Controller
 
 	public function edit($id)
 	{
-		$this->db->set('kretera_id', $this->input->post('kretera_id'));
+		$this->db->set('kiteria_id', $this->input->post('kriteria_id'));
 		$this->db->set('sub_kriteria', $this->input->post('sub_kriteria'));
 		$this->db->set('bobot_nilai', $this->input->post('bobot_nilai'));
 		$this->db->where(["id" => $id]);
